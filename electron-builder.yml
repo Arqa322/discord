@@ -1,0 +1,34 @@
+appId: com.pulsemesh.desktop
+productName: PulseMesh Desktop
+directories:
+  output: release
+files:
+  - dist/**/*
+  - electron/**/*
+  - public/pulsemesh-icon.png
+asar: true
+publish:
+  provider: github
+  releaseType: draft
+win:
+  target:
+    - nsis
+  icon: public/pulsemesh-icon.png
+  artifactName: PulseMesh-Setup-${version}.${ext}
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+mac:
+  category: public.app-category.social-networking
+  target:
+    - dmg
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Network
+extraMetadata:
+  main: electron/main.mjs
